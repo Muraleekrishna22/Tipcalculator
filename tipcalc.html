@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 8px;
+            margin: 10px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .division1{
+            height: 300px;
+            width: 400px;
+            border: 2px solid black;
+            margin-left: 35%;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<div class="division1">
+    
+    <h2 style="color: red;">TIP CALCULATOR</h2>
+    <label for="amount">Enter Amount (₹): </label>
+    <input type="number" id="amount" placeholder="Enter amount">
+
+    <br>
+
+    <label for="tipPercentage">Tip Percentage (%): </label>
+    <input type="number" id="tipPercentage" placeholder="Enter tip %">
+
+    <br>
+
+    <button onclick="calculateTip()">Calculate Tip</button>
+
+
+    <p id="result"></p>
+
+    <script>
+        function calculateTip() {
+            let amount = parseFloat(document.getElementById("amount").value);
+            let tipPercentage = parseFloat(document.getElementById("tipPercentage").value);
+            
+            if (isNaN(amount) || isNaN(tipPercentage)) {
+                document.getElementById("result").innerText = "Please enter valid numbers.";
+                return;
+            }
+
+            let tipAmount = (amount * tipPercentage) / 100;
+            document.getElementById("result").innerText = "Tip Amount:"+ tipAmount
+        }
+    </script>
+    </div>
+
+</body>
+</html>
